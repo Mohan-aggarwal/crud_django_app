@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Modal Structure (Always Visible) -->
+<div class="modal modal-open">
+    <div class="modal-box bg-gray-800 text-white">
+        <h2 class="text-2xl font-semibold mb-4">Are you sure you want to delete "{{ book.title }}"?</h2>
+
+        <form method="post" class="flex justify-center space-x-4">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-error">Yes, delete</button>
+            <a href="{% url 'book_list' %}" class="btn">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

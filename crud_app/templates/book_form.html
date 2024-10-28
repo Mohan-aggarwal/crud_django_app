@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% load widget_tweaks %}
+
+{% block content %}
+
+<!-- Modal Structure (Always Visible) -->
+<div class="modal modal-open">
+    <div class="modal-box bg-gray-800 text-white">
+        <h2 class="text-2xl font-semibold my-2">{{ form.instance.id|yesno:"Edit Book,Add a New Book" }}</h2>
+
+        <form method="post" class="space-y-4">
+            {% csrf_token %}
+
+            <div class="form-control">
+                {{ form.title.label_tag }}
+                {{ form.title|add_class:"input input-bordered w-full" }}
+            </div>
+
+            <div class="form-control">
+                {{ form.author.label_tag }}
+                {{ form.author|add_class:"input input-bordered w-full" }}
+            </div>
+
+            <div class="form-control">
+                {{ form.description.label_tag }}
+                {{ form.description|add_class:"textarea textarea-bordered w-full" }}
+            </div>
+
+            <button type="submit" class="btn btn-primary w-full mt-4">Save</button>
+        </form>
+
+        <!-- Optional Close Button -->
+        <div class="modal-action">
+            <a href="{% url 'book_list' %}" class="btn">Close</a>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
