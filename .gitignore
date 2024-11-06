@@ -22,3 +22,5 @@ docker-compose.yml
 .idea/
 .DS_Store
 Thumbs.db
+404.html
+templ.html

@@ -7,4 +7,6 @@ urlpatterns = [
     path('create/', views.book_create, name='book_create'),
     path('update/<int:id>/', views.book_update, name='book_update'),
     path('delete/<int:id>/', views.book_delete, name='book_delete'),
+    
+    path('testing/', views.testing, name='testing'), #for testing purpose
 ]
